@@ -29,7 +29,7 @@ public class Products {
     private String imagePath;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false, insertable = false, updatable = false)
     private Category category;
 
     // Getters y setters

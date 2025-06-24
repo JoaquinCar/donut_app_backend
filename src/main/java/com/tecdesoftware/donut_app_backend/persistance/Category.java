@@ -2,6 +2,8 @@ package com.tecdesoftware.donut_app_backend.persistance;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -9,6 +11,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // indica que el valor de este campo se generará automáticamente
     private Long id;
     private String name;
+
+
+    @OneToMany (mappedBy = "category")
+    private List<Products> products;
+
 
     // Getters and Setters
     public Long getId() {
