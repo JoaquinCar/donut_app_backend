@@ -3,34 +3,44 @@ package com.tecdesoftware.donut_app_backend.persistance;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // indica que el valor de este campo se generará automáticamente
-    @Column(name = "id_producto") // columna correspondiente en la BD
+    @Column(name = "id") // columna correspondiente en la BD
     private Long id;
 
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String name;
 
-    @Column(length = 100)
+    @Column
     private String brand;
 
-    @Column(precision = 10, scale = 2)
+    @Column
     private BigDecimal price;
 
-    @Column(length = 50)
+    @Column
     private String color;
 
-    @Column(name = "image_path", length = 255)
+    @Column(name = "image_path")
     private String imagePath;
 
+    @Column(name = "category_id", insertable = false, updatable = false)
+    private Long categoryId;
+
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderProduct> orderProducts;
+
+
+
 
     // Getters y setters
 
@@ -89,6 +99,20 @@ public class Products {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
+    }
 }
-
-

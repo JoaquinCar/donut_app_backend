@@ -8,6 +8,12 @@ class DonutAppBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
+		try {
+			System.out.println("[DEBUG_LOG] Context loaded successfully");
+		} catch (Exception e) {
+			System.out.println("[DEBUG_LOG] Error loading context: " + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 }
