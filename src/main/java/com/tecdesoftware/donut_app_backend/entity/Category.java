@@ -1,4 +1,4 @@
-package com.tecdesoftware.donut_app_backend.persistance;
+package com.tecdesoftware.donut_app_backend.entity;
 
 import jakarta.persistence.*;
 
@@ -14,7 +14,7 @@ public class Category {
 
 
     @OneToMany (mappedBy = "category")
-    private List<Products> products;
+    private List<Product> products;
 
 
     // Getters and Setters

@@ -1,4 +1,4 @@
-package com.tecdesoftware.donut_app_backend.persistance;
+package com.tecdesoftware.donut_app_backend.entity;
 
 import jakarta.persistence.*;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "products")
-public class Products {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // indica que el valor de este campo se generará automáticamente
     @Column(name = "id") // columna correspondiente en la BD

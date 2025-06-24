@@ -1,4 +1,4 @@
-package com.tecdesoftware.donut_app_backend.persistance;
+package com.tecdesoftware.donut_app_backend.entity;
 
 import jakarta.persistence.*;
 
@@ -18,7 +18,7 @@ public class OrderProduct {
 
     @ManyToOne
     @JoinColumn(name = "product_id", insertable = false, updatable = false)
-    private Products product;
+    private Product product;
 
     public OrderProductPK getId() {
         return id;
@@ -44,11 +44,11 @@ public class OrderProduct {
         this.order = order;
     }
 
-    public Products getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(Products product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 }
